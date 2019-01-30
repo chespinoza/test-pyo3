@@ -10,8 +10,8 @@ fn sum_as_string(a: usize, b: usize) -> PyResult<String> {
     Ok((a+b).to_string())
 }
 
-#[pymodule]
+#[pymodinit]
 fn string_sum(py: Python, m: &PyModule) -> PyResult<()>{
-    m.add_wrapped(wrap_function!(sum_as_string))?;
+    m.add_function(wrap_function!(sum_as_string))?;
     Ok(())
 }
